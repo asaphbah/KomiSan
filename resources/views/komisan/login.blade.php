@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{asset('img/system/icon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <title>Komisan: Login</title>
@@ -33,12 +34,15 @@
     <div class="container-login">
         <form method="POST" action="{{ route('user.auth') }}">
             @csrf
-            <div class="">
-                <div class="login-icon">
-                    <img src="{{asset('img/system/mascote.png')}}" alt="" srcset="">
+            <div class="mascot-container">
+                <div class="mascot-box">
+                    <div class="mascot-circle">
+                        <img src="{{asset('img/system/mascote.png')}}" alt="" srcset="" draggable="false">
+                    </div>
+                        <img src="{{asset('img/system/mascote.png')}}" alt="" srcset="" draggable="false">
                 </div>
-                <h1 class="h1-cadastro">Login</h1>
             </div>
+            
             <div class="input-group-login">
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -49,9 +53,9 @@
                     </ul>
                 </div>
                 @endif
-              
+
+                <h1 class="h1-login">Login</h1>
                 <div class="input-box-login">
-                   
                     <input type="text" name="username" id="input-username" required>
                     <label for="username">
                         <span>Username</span>
@@ -66,14 +70,14 @@
                 </div>
                 <span toggle="#password-field" class="toggle-password">Mostrar senha</span>
             </div>
-            <div class="input-box">
-                <a class="toggle-password" href="{{route('user.create.one')}}">cadastrar-se</a>
-           </div>
             <div class="button-submit-cadastro">
                 <button class="button-submit" type="submit">
-                    conecte-se
+                    Entrar
                 </button>
             </div>
+            <div class="input-box">
+                <a class="anchor-donthavean-acount" href="{{route('user.create.one')}}"><span id="donthaveacount-text-color">Não tem uma conta?</span> Cadastre-se aqui</a>
+           </div>
         </form>
     </div>
     <script>
